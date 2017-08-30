@@ -1,0 +1,18 @@
+/* Selector: Select Elements by ID using #elementId */
+#wiki {
+    text-decoration: none;
+}
+/* Selector: Select Elements by Class using .elementClass */
+.planet {
+    font-weight: bold;
+}
+.moon {
+    font-style: italic;
+}
+.pic {
+    font-style: normal;
+}
+/* Selector: Select Elements by HTML element type */
+h1, h2 {
+    color: navy;
+}

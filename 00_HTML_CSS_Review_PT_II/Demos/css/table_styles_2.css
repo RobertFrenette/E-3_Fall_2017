@@ -1,0 +1,10 @@
+#planetTable, th, td  {
+    border: 1px solid #000000;
+    padding: 10px;
+    margin: auto;
+}
+
+tfoot {
+    text-align: right;
+    font-size: .75em;
+}

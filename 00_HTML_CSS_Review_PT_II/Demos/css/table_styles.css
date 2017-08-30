@@ -1,0 +1,23 @@
+#planetTable, td  {
+    background-color: #000000;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    margin: auto;
+}
+
+td {
+    background-color: #ffffff;
+    color: #000080;
+}
+
+#planetsHeader, #satellitesHeader {
+    font-size: 1.5em;
+    text-align: center;
+}
+#planetsSubHeader {
+    font-size: 1.25em;
+}
+#moonsSubHeader {
+    font-size: 1.25em;
+    text-align: right;
+}
