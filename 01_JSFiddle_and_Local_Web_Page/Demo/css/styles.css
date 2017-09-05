@@ -1,0 +1,14 @@
+/* assign color by HTML tag */
+h1 {
+  color: #00498F;
+}
+
+/* assign color by id attribute */
+#hvd {
+  color: #A51C30;
+}
+
+/* assign color by class attribute */
+.tf {
+  color: #677984;
+}
