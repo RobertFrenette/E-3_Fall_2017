@@ -1,0 +1,16 @@
+div {
+    padding-top: 10px;
+}
+.txtInput {
+    width: 50px;
+}
+.txtSpan {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#btnDiv {
+    padding-left: 165px;
+}
+#alert {
+    color: #FF0000;
+}
