@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSCI E-3 Homework Unit #2</title>
+    <link rel="stylesheet" href="css/cscie3.css">
+  </head>
+  <body class="hw">
+    <div class="container">
+      <h4>6. Image processing (array handling) </h4>
+      <p>The image below is appearing inside an HTML canvas element.&nbsp; We'll
+        learn more about canvas elements later in the course, but for now, the
+        important thing to know is that, unlike an image displayed normally in
+        the browser using the IMG tag, the image data that appears in a canvas
+        element is available to Javascript as a "bitmap". </p>
+      <p>The bitmap data is an array that maps four numbers to each pixel in the
+        image: r, g, b, a, where r, g, b are integer values from 0 to 255 which
+        describe red, green, and blue respectively; and a, which is an 'alpha'
+        value between 0 and 255 in which 0 is transparent and 255 is completely
+        opaque. Since there are four array elements for each pixel, the total
+        array will contain pixels_in_image * 4 elements in all. </p>
+      <p>The first pixel's red data is at data[0], the second pixel's red data
+        at data[4], etc. </p>
+      <p>Your job is to write additional code inside the function that will
+        modify the image data to create a new version, as described below
+        and in the <span style="font-family: monospace;">js/hw2ArrayImageProcessing.js</span>
+        file.&nbsp; </p>
+      <p><strong>Important Note: To do this exercise using your local file
+          system (with no Web server involved), you will need to use Firefox as
+          your browser. Chrome will display an error due to security
+          constraints.</strong> </p>
+      <table style="width: 100%" border="1">
+        <tbody>
+          <tr>
+            <td>Original</td>
+            <td>GREEN-only version</td>
+          </tr>
+          <tr>
+            <td><canvas id="originalCanvas"></canvas><br></td>
+            <td><canvas id="greenCanvas"></canvas><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script type="text/javascript" src="js/hw2ArrayImageProcessing.js"></script>
+    <script type="text/javascript" src="js/hw2ArrayImageProcessingSetup.js"></script>
+  </body>
+</html>

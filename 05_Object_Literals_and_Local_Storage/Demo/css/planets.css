@@ -1,0 +1,12 @@
+.planetSymbol {
+    width: 20px;
+    height: 20px;
+}
+.planetImg {
+    padding-left: 3px;
+    width: 100px;
+    height: 100px;    
+}
+.desc {
+    width: 500px;
+}
