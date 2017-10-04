@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Local Storage</title>
+        <meta charset="utf-8" />
+        <!-- Include External Style Sheet -->
+        <link rel="stylesheet" href="css/local_storage.css" />
+    </head>
+    <body>
+        <!-- Start Body -->
+        <h1>Shopping List</h1>
+        
+        <form name="theForm" id="theForm">
+          <label for="itemName">Item Name</label>
+          <input type="text" id="itemName" autofocus />
+          <br />
+          <label for="itemQuantity">Quantity</label>
+          <input type="text" id="itemQuantity" />
+          <br />
+          <br />
+          <input type="submit" id="addButton" value="Add Item" />
+          <br />
+          <br /><span id="message"></span>
+        </form>
+        
+        <h2>Items:</h2>
+        <button id="clearStorage" class="hide">Clear LocalStorage</button>
+        <ul id="itemList"></ul>
+
+        <!-- Include external JavaScript -->
+        <script src="js/local_storage.js"></script>
+        <!-- End Body -->
+    </body>
+</html>
