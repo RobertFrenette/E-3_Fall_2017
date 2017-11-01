@@ -19,31 +19,43 @@ function updateMap(lat, lng, txt) {
     }); 
 }
 
-$(document).ready(function(){
-    var theForm = $('#theForm');
-    var zip = $('#zip');
-    var lat = $('#lat');
-    var lng = $('#lng');
-    var output = $('#output');
+window.onload = function(){
+    var theForm = document.getElementById('theForm');
+    var zip = document.getElementById('zip');
+    var lat = document.getElementById('lat');
+    var lng = document.getElementById('lng');
+    var output = document.getElementById('output');
 
-    var mapBtn = $('#mapBtn');
-    var mapDiv = $('#map');
+    var mapBtn = document.getElementById('mapBtn');
+    var mapDiv = document.getElementById('map');
     
-    theForm.submit(getlatLng);
-    mapBtn.click(displayMap);
-
-    function getlatLng(e) {
+    theForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        // make an send an XmlHttpRequest
+        var x = new XMLHttpRequest();
+        x.open("GET","http://maps.googleapis.com/maps/api/geocode/json?address="+ zip.value +"&sensor=false",true);
+        x.send();
 
-        $.getJSON("http://maps.googleapis.com/maps/api/geocode/json?address="+ zip.val() +"&sensor=false", function(data){
-            lat.html(data.results[0].geometry.location.lat);
-            lng.html(data.results[0].geometry.location.lng);
-            mapBtn.show();
-        });
-    }
+        // set up a listener for the response
+        x.onreadystatechange=function(){
+            if (this.readyState==4 && this.status==200){
+                var o = this.response;
+                output.innerHTML = o;
+                console.log(o);
+                var l = JSON.parse(this.response).results[0].geometry.location;
+                if (l.lat) {
+                    lat.innerHTML = l.lat;
+                }
+                if (l.lng) {
+                    lng.innerHTML = l.lng;
+                }
 
-    function displayMap() {
-        mapDiv.show();
-        updateMap(parseFloat(lat.html()), parseFloat(lng.html()), zip.val());
-    }
-});
+                mapBtn.setAttribute('class', 'visible');
+            }
+        }
+    });
+    mapBtn.addEventListener('click', function() {
+        mapDiv.setAttribute('class', 'visible');
+        updateMap(parseFloat(lat.innerHTML), parseFloat(lng.innerHTML), zip.value);
+    });
+};

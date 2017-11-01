@@ -6,6 +6,9 @@ html, body {
 .hidden {
 	display: none;
 }
+.visible {
+	display: block;
+}
 #map {
 	margin: auto;
 	width: 75%;
