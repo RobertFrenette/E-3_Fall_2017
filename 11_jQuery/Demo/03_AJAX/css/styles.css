@@ -1,0 +1,9 @@
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+}
+#elevationDiv {
+    font-weight: bold;
+}

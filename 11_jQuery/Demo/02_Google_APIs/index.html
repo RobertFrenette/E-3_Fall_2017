@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+  <!--
+    Note: To use this example, you will need a Google Maps API Key.
+          Else, you will get the following error in the Console:
+          
+          js?key=YOUR_API_KEY&callback=initMap:38 Google Maps API error: InvalidKeyMapError https://developers.google.com/maps/documentation/javascript/error-messages#invalid-key-map-error
+
+          Usage:
+          https://developers.google.com/maps/documentation/javascript/get-api-key
+          https://developers.google.com/maps/documentation/javascript/examples/
+  -->
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+      <form action="#" id="theForm" name="firstForm">
+          <label for="zip">Zip Code /  Postal Code (worldwide) </label>
+          <br /><input placeholder="Postal Code" name="zip" id="zip" type="text" required autofocus />
+          <br /><br />Lat: 
+          <span id="lat">&nbsp;</span>
+          <br />Long:
+          <span id="lng">&nbsp;</span>
+          <br /><br /><input type="submit" value="Submit" />
+      </form>
+      <br /><code><div id="output"></div></code>
+      <br /><button class="hidden" id="mapBtn">Show Map!</button>
+      <br /><br /><div id="map" class="hidden"></div>
+
+      <!-- Include jQuery from CDN -->
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="js/scripts.js"></script>
+      <!-- See note on line 3, and replace YOUR_API_KEY in the following line -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  </body>
+</html>

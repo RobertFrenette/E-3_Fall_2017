@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Demo</title>
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+		<div id="container">
+			<h1>Registration Form</h1>
+			<form id="theForm" method="POST">
+				<label for="userName">User Name</label>
+				<input type="text" id="userName" />
+				<br />
+				<label for="password">Password</label>
+				<input type="password" id="password" />
+				<br />
+				<label for="confirm">Confirm</label>
+				<input type="password" id="confirm" />
+				<br />
+				<br />
+				<label for="email">Email</label>
+				<input type="email" placeholder="you@domain.com" id="email" />
+				<br />
+				<br />
+				<input type="reset" value="Clear" id="reset" />
+				<input type="submit" value="Register" />
+				<br />
+				<br /><span id="msg" class="error"></span>
+			</form>
+		</div>
+	
+		<div>
+			<h2>Users (<span id="userCount"></span>)</h2>
+			<ul id="users"></ul>
+		</div>
+	
+		<script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="js/scripts.js"></script>
+	</body>
+</html>
