@@ -1,15 +1,6 @@
 'use strict';
 
 $(document).ready(function(){
-    var loading = document.getElementById('loading');
-    var disp = document.getElementById('disp');
-    
-    var mtnSelect = document.getElementById('mtnSelect');
-    var resultSpans = document.getElementsByClassName('res');
-    var mtnDataDisplay = document.getElementById('mtnDataDisplay');
-    var elevationSpan = document.getElementById('elevationSpan');
-    var pic = document.getElementById('pic');
-    
     var mountains = [];
     
     function Mountain(name, elevation, img) {
@@ -33,68 +24,51 @@ $(document).ready(function(){
     };
     
     function displayMountainData(mountain) {
-        elevationSpan.innerHTML = mountain.getElevation();
-        pic.setAttribute('alt', mountain.getName());  
-        pic.setAttribute('src', mountain.getImg());
-        mtnDataDisplay.setAttribute('class', 'visible');
+        $('#elevationSpan').html(mountain.getElevation());
+        $('#pic').attr('alt', mountain.getName());  
+        $('#pic').attr('src', mountain.getImg());
+        $('#mtnDataDisplay').attr('class', 'visible');
     }
-    
-    function resetResults() {
-        var len = resultSpans.length;
-        for (var i = 0; i < len; i++) {
-            resultSpans[i].innerHTML = '';
-        }
-        mtnDataDisplay.setAttribute('class', 'hidden');
-    }
-    
-    mtnSelect.addEventListener('change', function() {
-        var val = this.options[this.selectedIndex].value;
+        
+    $('#mtnSelect').change(function(e) {
+        var val = $(this).find(":selected").val();
         if (val >= 0) {
-            var mtn = mountains[val];
-            displayMountainData(mtn);
+            displayMountainData(mountains[val]);
         } else {
-         resetResults();
+            $('#mtnDataDisplay').attr('class', 'hidden');
         }
-    }, false);
+  });
     
     function populateSelectElement(mountains) {
         mountains.forEach((mountain, index) => {
-            var name = mountain.getName();
-            var option = document.createElement('option');
-            
-            option.value = index;
-            option.appendChild(document.createTextNode(name));
-            
-            mtnSelect.appendChild(option);
+            $('#mtnSelect').append(
+                $('<option/>').attr(
+                    { 'value': index }).text(mountain.getName()
+                )
+            );
         });
     }
     
     function displayPage() {
-        loading.setAttribute('class', 'hidden');
-        disp.setAttribute('class', 'visible');
+        $('#loading').attr('class', 'hidden');
+        $('#disp').attr('class', 'visible');
     }
     
-    function processData(data) {
-        var len = data.length;
-        
-        for (var i = 0; i < len; i++) {
-            var mountain = data[i];
-            var name = mountain.mountainName;
-            var elevation = mountain.mountainElevation;
-            var img = mountain.mountainPic;
-            var newMountain = new Mountain(name, elevation, img);
+    function processData(data, mountains) {
+        data.forEach((mountain, index) => {
+            var newMountain = new Mountain(mountain.mountainName, mountain.mountainElevation, mountain.mountainPic);
             newMountain.persist(mountains);
-        }
-        populateSelectElement(mountains);
+        });
         
+        populateSelectElement(mountains);
         displayPage();
     }
     
-    function getMountainsData() {
+    function getMountainsData(mountains) {
         $.getJSON("data/mountains.json",function(data) {
-          processData(data.mountains);
+          processData(data.mountains, mountains);
         });
     }
         
-    getMountainsData();
+    getMountainsData(mountains);
 });
